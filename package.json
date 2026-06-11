@@ -9,14 +9,14 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "html2pdf.js": "^0.10.1",
     "idb": "^7.1.1",
-    "lucide-react": "^0.344.0",
+    "lucide-react": "^0.475.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "vite": "^6.0.0",
-    "vite-plugin-pwa": "^0.20.0"
+    "vite-plugin-pwa": "^0.21.1"
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
