@@ -28,7 +28,6 @@ export function ReflectionWorkspace({
   onSave,
 }: ReflectionWorkspaceProps) {
   const remaining = 500 - text.length;
-  const isError = confirmation.startsWith('Error:');
 
   return (
     <section className="surface p-4 sm:p-5" aria-label="Reflection workspace">

@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight, Moon } from 'lucide-react';
 import { useState } from 'react';
-import { addDays, toLocalDateKey } from '../lib/dates';
+import { toLocalDateKey } from '../lib/dates';
 import type { DailyLog } from '../types';
 
 type CalendarViewProps = {
