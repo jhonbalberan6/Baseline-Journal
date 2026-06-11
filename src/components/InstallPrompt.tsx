@@ -31,14 +31,9 @@ export function InstallPrompt() {
   }, []);
 
   if (installed) return null;
-  if (!promptEvent && !ios) return null;
-
-  async function handleInstall() {
-    if (!promptEvent) return;
-    await promptEvent.prompt();
-    await promptEvent.userChoice;
-    setPromptEvent(null);
-  }
+  
+  // If we're on Android/Chrome but the event hasn't fired yet
+  const showFallback = !promptEvent && !ios && !installed;
 
   return (
     <section className="surface border-2 border-amber-500/20 p-4" aria-label="Install app">
@@ -51,6 +46,8 @@ export function InstallPrompt() {
           <p className="mt-1 text-sm leading-5 text-stone-400">
             {ios 
               ? 'On iPhone: Tap Share → "Add to Home Screen" to remove browser bars.' 
+              : showFallback
+              ? 'Android Chrome: Tap Menu (⋮) → "Install app" to get the physical app.'
               : 'Don\'t just add a shortcut—install the full standalone app for the best experience.'}
           </p>
         </div>
@@ -64,6 +61,10 @@ export function InstallPrompt() {
           <Download size={18} aria-hidden="true" />
           Install Full App
         </button>
+      ) : showFallback ? (
+        <div className="mt-3 rounded bg-stone-800/50 p-2 text-xs text-stone-500 italic">
+          Waiting for Chrome to verify app compatibility...
+        </div>
       ) : null}
     </section>
   );
