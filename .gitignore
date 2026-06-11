@@ -1,0 +1,6 @@
+node_modules
+dist
+.npm-cache
+vite-server.log
+vite-server.err.log
+*.tsbuildinfo
