@@ -35,6 +35,13 @@ export function InstallPrompt() {
   // If we're on Android/Chrome but the event hasn't fired yet
   const showFallback = !promptEvent && !ios && !installed;
 
+  async function handleInstall() {
+    if (!promptEvent) return;
+    await promptEvent.prompt();
+    await promptEvent.userChoice;
+    setPromptEvent(null);
+  }
+
   return (
     <section className="surface border-2 border-amber-500/20 p-4" aria-label="Install app">
       <div className="flex items-start gap-3">
