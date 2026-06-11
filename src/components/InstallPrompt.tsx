@@ -41,22 +41,28 @@ export function InstallPrompt() {
   }
 
   return (
-    <section className="surface p-4" aria-label="Install app">
+    <section className="surface border-2 border-amber-500/20 p-4" aria-label="Install app">
       <div className="flex items-start gap-3">
         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-amber-500/10 text-amber-300">
           <Smartphone size={19} aria-hidden="true" />
         </span>
         <div className="min-w-0 flex-1">
-          <h2 className="text-sm font-medium text-stone-100">Install Baseline</h2>
-          <p className="mt-1 text-sm leading-6 text-stone-400">
-            {ios ? 'On iPhone or iPad, use Share → Add to Home Screen.' : 'Keep the journal on your home screen for offline use.'}
+          <h2 className="text-sm font-semibold text-stone-100">Get the Full App Experience</h2>
+          <p className="mt-1 text-sm leading-5 text-stone-400">
+            {ios 
+              ? 'On iPhone: Tap Share → "Add to Home Screen" to remove browser bars.' 
+              : 'Don\'t just add a shortcut—install the full standalone app for the best experience.'}
           </p>
         </div>
       </div>
       {promptEvent ? (
-        <button className="button-secondary mt-4 w-full justify-center" type="button" onClick={() => void handleInstall()}>
-          <Download size={17} aria-hidden="true" />
-          Install App
+        <button 
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-amber-500 py-2.5 text-sm font-bold text-stone-900 transition-colors hover:bg-amber-400 active:scale-[0.98]" 
+          type="button" 
+          onClick={() => void handleInstall()}
+        >
+          <Download size={18} aria-hidden="true" />
+          Install Full App
         </button>
       ) : null}
     </section>
